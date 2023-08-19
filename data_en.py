@@ -59,7 +59,7 @@ subheaders2 = [
         "A Physics simulation and visualisation library for python."
     ],
     [
-        "[This website](https://quirijndubois.nl/)",
+        "[This website](https://github.com/quirijndubois/website)",
         "An open source digital resume for myself"
     ]
 ]
