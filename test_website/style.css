@@ -1,0 +1,48 @@
+#main {
+    position: fixed;
+    font-family: "Roboto", serif;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+
+    animation: blackHole 1s linear infinite;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -1s);
+}
+@keyframes blackHole{
+    from{
+        transform: translate(-50%, -50%) scale(1);
+    }
+    to {
+        transform: translate(-50%, -50%) scale(0);
+    }
+} 
+canvas{
+    position: fixed;
+    /* background-color: white; */
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h1 {
+    height: calc(100vh - 40px); /* 40px total padding (20px top + 20px bottom) */
+    margin: 0;
+    padding: 20px 0; /* 20px top and bottom padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 50px;
+}
+
+
+body {
+    background-color: rgb(2, 0, 28);
+    color: rgb(131, 131, 166);
+    text-align: center;
+    font-family: "Roboto", serif;
+}
