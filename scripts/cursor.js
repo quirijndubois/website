@@ -1,7 +1,7 @@
-const cursor = document.querySelector('.circle');
+const cursor = document.querySelector('.cursor');
 
 let scrolled = 0;
-let mousePos = { x: 0, y: 0 };
+let mousePos = { x: -100, y: -100 };
 let AFKtime = 1;
 
 function updateCursor() {
