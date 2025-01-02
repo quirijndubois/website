@@ -192,7 +192,7 @@ footer {
 
 #instagram:hover {
     opacity: 1;
-    filter: saturate(0.4);
+    filter: saturate(0.4) brightness(2);
 }
 
 #github {
@@ -201,7 +201,7 @@ footer {
 
 #github:hover {
     opacity: 1;
-    filter: saturate(0.5);
+    filter: saturate(0.5) brightness(2);
 }
 
 #linkedin {
@@ -210,7 +210,7 @@ footer {
 
 #linkedin:hover {
     opacity: 1;
-    filter: saturate(0.5);
+    filter: saturate(0.5) brightness(2);
 }
 
 #bsky {
@@ -219,7 +219,7 @@ footer {
 
 #bsky:hover {
     opacity: 1;
-    filter: saturate(0.5);
+    filter: saturate(0.5) brightness(2);
 }
 
 
