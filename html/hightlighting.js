@@ -5,7 +5,7 @@ function update() {
 
     window.requestAnimationFrame(update);
     const paragraphs = document.querySelectorAll('p');
-    
+
     let positions = [];
     for (let i = 0; i < paragraphs.length; i++) {
         let top = paragraphs[i].getBoundingClientRect().top;
@@ -21,14 +21,14 @@ function update() {
         }
     }
 
-    if (index != lastIndex){
+    if (index != lastIndex) {
         if (lastIndex != -1) {
             paragraphs[lastIndex].style.animation = 'darken 0.5s ease-in-out';
-            paragraphs[lastIndex].style.color = 'grey';
+            paragraphs[lastIndex].style.opacity = '0.5';
         }
         if (index != -1) {
             paragraphs[index].style.animation = 'brighten 0.5s ease-in-out';
-            paragraphs[index].style.color = 'white';
+            paragraphs[index].style.opacity = '1';
         }
     }
     lastIndex = index;

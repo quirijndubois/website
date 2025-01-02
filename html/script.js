@@ -1,54 +1,33 @@
-const aboutBtn = document.getElementById('about-btn');
-const projectsBtn = document.getElementById('projects-btn');
-const contactBtn = document.getElementById('contact-btn');
-const pageContent = document.getElementById('page-content');
-const languageSelect = document.getElementById('language');
+function mapRange(value, low1, high1, low2, high2) {
+    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+}
 
-fetch('content.json')
-    .then(response => response.json())
-    .then(data => {
-        const content = data;
-        languageSelect.addEventListener('change', () => {
-            const selectedLanguage = languageSelect.value;
-            pageContent.innerHTML = content[selectedLanguage].about;
+function clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+}
 
-        });
+function mapRangeClamp(value, low1, high1, low2, high2) {
+    return clamp(mapRange(value, low1, high1, low2, high2), low2, high2);
+}
 
-        // Add event listeners to the buttons
-        aboutBtn.addEventListener('click', () => {
-            const selectedLanguage = languageSelect.value;
-            pageContent.innerHTML = content[selectedLanguage].about;
-        });
+let offset = 40
 
-        projectsBtn.addEventListener('click', () => {
-            const selectedLanguage = languageSelect.value;
-            pageContent.innerHTML = content[selectedLanguage].projects;
-        });
+function updateHeader() {
+    window.requestAnimationFrame(updateHeader);
 
-        contactBtn.addEventListener('click', () => {
-            const selectedLanguage = languageSelect.value;
-            pageContent.innerHTML = content[selectedLanguage].contact;
-        });
+    const header = document.querySelector('.header');
 
-        aboutBtn.addEventListener('click', () => {
-            const selectedLanguage = languageSelect.value;
-            pageContent.innerHTML = content[selectedLanguage].about;
-            [aboutBtn, projectsBtn, contactBtn].forEach(button => button.classList.remove('active'));
-            aboutBtn.classList.add('active');
-        });
+    headerHeight = header.getBoundingClientRect().top;
 
-        projectsBtn.addEventListener('click', () => {
-            const selectedLanguage = languageSelect.value;
-            pageContent.innerHTML = content[selectedLanguage].projects;
-            [aboutBtn, projectsBtn, contactBtn].forEach(button => button.classList.remove('active'));
-            projectsBtn.classList.add('active');
-        });
+    if (window.scrollY >  window.innerHeight/2 - offset) {
+        header.style.top =  window.scrollY + offset + 'px';
+    }
+    else{
+        header.style.top = window.innerHeight/2 + 'px';
+    }
 
-        contactBtn.addEventListener('click', () => {
-            const selectedLanguage = languageSelect.value;
-            pageContent.innerHTML = content[selectedLanguage].contact;
-            [aboutBtn, projectsBtn, contactBtn].forEach(button => button.classList.remove('active'));
-            contactBtn.classList.add('active');
-        });
-    })
-    .catch(error => console.error('Error loading content:', error));
+    let scale = mapRangeClamp(window.scrollY, window.innerHeight - offset*2, window.innerHeight/2-offset*2, 0.5, 1);
+    header.style.transform = 'translate(-50%, -50%) scale(' + scale + ')';
+}
+
+updateHeader();
