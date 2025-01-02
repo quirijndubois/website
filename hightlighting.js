@@ -1,6 +1,7 @@
+const body = document.querySelector('body');
+body.style.cursor = 'none';
+
 let lastIndex = -1;
-
-
 function update() {
 
     window.requestAnimationFrame(update);

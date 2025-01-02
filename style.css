@@ -3,8 +3,6 @@ body {
     color: rgb(255, 255, 255);
     background-color: rgb(0, 0, 0);
     font-family: "Roboto Mono", serif;
-    /* hide  the cursor */
-    /* cursor: none; */
 }
 
 .circle {
@@ -126,9 +124,6 @@ footer {
     background-color: rgb(80, 0, 0);
     z-index: -100;
 }
-
-
-/* keyframe animation */
 
 @keyframes brighten {
     from {
