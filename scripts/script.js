@@ -1,0 +1,3 @@
+updateHeader();
+UpdateHighlighting();
+startCursorUpdate();

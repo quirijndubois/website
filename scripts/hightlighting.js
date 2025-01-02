@@ -1,10 +1,8 @@
-const body = document.querySelector('body');
-body.style.cursor = 'none';
+let lastHighLightingIndex = -1;
 
-let lastIndex = -1;
-function update() {
+function UpdateHighlighting() {
 
-    window.requestAnimationFrame(update);
+    window.requestAnimationFrame(UpdateHighlighting);
     const paragraphs = document.querySelectorAll('p');
 
     let positions = [];
@@ -22,16 +20,15 @@ function update() {
         }
     }
 
-    if (index != lastIndex) {
-        if (lastIndex != -1) {
-            paragraphs[lastIndex].style.animation = 'darken 0.5s ease-in-out';
-            paragraphs[lastIndex].style.opacity = '0.5';
+    if (index != lastHighLightingIndex) {
+        if (lastHighLightingIndex != -1) {
+            paragraphs[lastHighLightingIndex].style.animation = 'darken 0.5s ease-in-out';
+            paragraphs[lastHighLightingIndex].style.opacity = '0.5';
         }
         if (index != -1) {
             paragraphs[index].style.animation = 'brighten 0.5s ease-in-out';
             paragraphs[index].style.opacity = '1';
         }
     }
-    lastIndex = index;
+    lastHighLightingIndex = index;
 }
-update();

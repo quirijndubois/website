@@ -1,11 +1,3 @@
-// refresh on r
-document.addEventListener('keydown', (event) => {
-    if (event.key == 'r') {
-        window.location.reload();
-    }
-});
-
-
 const titleText = 'Quirijn du Bois';
 
 const content = [
@@ -23,61 +15,4 @@ Donec quis mi ligula. Etiam vel libero tellus. Vestibulum semper leo vitae odio 
     `
 ]
 
-function addParagraph(text) {
-    const paragraph = document.createElement('p');
-    paragraph.innerHTML = text;
-    document.body.appendChild(paragraph);
-}
-
-function addFooter() {
-    const footer = document.createElement('footer');
-    footer.innerHTML = 'Quirijn du Bois';
-    document.body.appendChild(footer);
-}
-
-function typeWrite(element, duration, text) {
-    const height = element.getBoundingClientRect().height;
-    const textArray = text.split('');
-    element.innerHTML = '';
-
-    const length = textArray.length;
-
-    textArray.forEach((letter, i) => {
-        setTimeout(() => {
-            element.innerHTML += letter;
-            element.getBoundingClientRect().height = height;
-        }, i * duration / length);
-    });
-}
-const title = document.querySelector('.header');
-typeWrite(title, 1000, titleText);
-
-for (let i = 0; i < content.length; i++) {
-    addParagraph("");
-}
-
-addFooter();
-
-const paragraphs = document.querySelectorAll('p');
-
-const screenHeight = window.innerHeight;
-
-let triggerHeight = 0;
-let index = 0
-let timer = 60
-
-function paragraphUpdater() {
-    triggerHeight = paragraphs[index].getBoundingClientRect().top;
-    if (index < paragraphs.length && triggerHeight < screenHeight * 0.75 && timer > 60) {
-        typeWrite(paragraphs[index], 1000, content[index]);
-        paragraphs[index].style.color = 'white';
-        index += 1;
-        timer = 0;
-    }
-    if (index < paragraphs.length) {
-        window.requestAnimationFrame(paragraphUpdater);
-    }
-    timer += 1;
-}
-
-paragraphUpdater();
+const footerText = 'Quirijn du Bois';
