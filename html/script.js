@@ -19,14 +19,14 @@ function updateHeader() {
 
     headerHeight = header.getBoundingClientRect().top;
 
-    if (window.scrollY >  window.innerHeight/2 - offset) {
-        header.style.top =  window.scrollY + offset + 'px';
+    if (window.scrollY > window.innerHeight / 2 - offset) {
+        header.style.top = window.scrollY + offset + 'px';
     }
-    else{
-        header.style.top = window.innerHeight/2 + 'px';
+    else {
+        header.style.top = window.innerHeight / 2 + 'px';
     }
 
-    let scale = mapRangeClamp(window.scrollY, window.innerHeight - offset*2, window.innerHeight/2-offset*2, 0.5, 1);
+    let scale = mapRangeClamp(window.scrollY, window.innerHeight - offset * 2, window.innerHeight / 2 - offset * 2, 0.5, 1);
     header.style.transform = 'translate(-50%, -50%) scale(' + scale + ')';
 }
 
