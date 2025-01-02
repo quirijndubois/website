@@ -65,16 +65,15 @@ addFooter();
 
 const paragraphs = document.querySelectorAll('p');
 
-
 const screenHeight = window.innerHeight;
 
-let triggerHeight = screenHeight;
+let triggerHeight = 0;
 let index = 0
 let timer = 60
 
 function paragraphUpdater() {
     triggerHeight = paragraphs[index].getBoundingClientRect().top;
-    if (index < paragraphs.length && triggerHeight < screenHeight / 2 && timer > 60) {
+    if (index < paragraphs.length && triggerHeight < screenHeight * 0.75 && timer > 60) {
         typeWrite(paragraphs[index], 1000, content[index]);
         paragraphs[index].style.color = 'white';
         index += 1;
