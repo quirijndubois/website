@@ -1,3 +1,7 @@
+html * {
+    cursor: none
+}
+
 body {
     color: rgb(255, 255, 255);
     background-color: rgb(0, 0, 0);
@@ -172,49 +176,58 @@ footer {
     transform: translate(-50%, -50%);
     /* background-color: grey; */
     height: 100px;
-    width: 1200px;
+    width: 800px;
 
 }
 
 .link {
     top: 0px;
     right: 20px;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     object-fit: cover;
     opacity: 0.3;
     filter: saturate(0);
+    animation: flyIn 1s ease-in-out;
+}
+
+#linkedin {
+    animation-delay: -0.6s;
+    opacity: 0.4;
 }
 
 #instagram {
+    animation-delay: -0.4s;
     opacity: 0.5;
 }
+
+#bsky {
+    animation-delay: -0.2s;
+    opacity: 0.3;
+}
+
+#github {
+    animation-delay: -0.0s;
+    opacity: 0.3;
+}
+
+
 
 #instagram:hover {
     opacity: 1;
     filter: saturate(0.4) brightness(2);
 }
 
-#github {
-    opacity: 0.3;
-}
 
 #github:hover {
     opacity: 1;
     filter: saturate(0.5) brightness(2);
 }
 
-#linkedin {
-    opacity: 0.4;
-}
 
 #linkedin:hover {
     opacity: 1;
     filter: saturate(0.5) brightness(2);
-}
-
-#bsky {
-    opacity: 0.3;
 }
 
 #bsky:hover {
@@ -272,5 +285,15 @@ footer {
 
     to {
         opacity: 1;
+    }
+}
+
+@keyframes flyIn {
+    from {
+        transform: translateY(2000px);
+    }
+
+    to {
+        transform: translateY(0px);
     }
 }
