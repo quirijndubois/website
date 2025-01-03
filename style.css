@@ -9,8 +9,8 @@ body {
 }
 
 .cursor {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     position: absolute;
     transform: translate(-10px, -10px);
@@ -295,5 +295,25 @@ footer {
 
     to {
         transform: translateY(0px);
+    }
+}
+
+@keyframes highLight {
+    from {
+        transform: scale(1) translate(-10px, -10px);
+    }
+
+    to {
+        transform: scale(3) translate(-3.3px, -3.3px);
+    }
+}
+
+@keyframes unhighLight {
+    from {
+        transform: scale(3) translate(-3.3px, -3.3px);
+    }
+
+    to {
+        transform: scale(1) translate(-10px, -10px);
     }
 }
