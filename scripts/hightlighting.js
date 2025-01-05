@@ -5,6 +5,10 @@ function UpdateHighlighting() {
     window.requestAnimationFrame(UpdateHighlighting);
     const paragraphs = document.querySelectorAll('p');
 
+    if (paragraphs.length == 0) {
+        return;
+    }
+
     let positions = [];
     for (let i = 0; i < paragraphs.length; i++) {
         let top = paragraphs[i].getBoundingClientRect().top;

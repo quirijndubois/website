@@ -1,15 +1,3 @@
-function addParagraph(text) {
-    const paragraph = document.createElement('p');
-    paragraph.innerHTML = text;
-    document.body.appendChild(paragraph);
-}
-
-function addFooter() {
-    const footer = document.createElement('footer');
-    footer.innerHTML = footerText;
-    document.body.appendChild(footer);
-}
-
 function typeWrite(element, duration, text) {
     const height = element.getBoundingClientRect().height;
     const textArray = text.split('');
@@ -24,34 +12,60 @@ function typeWrite(element, duration, text) {
         }, i * duration / length);
     });
 }
-const title = document.querySelector('.header');
-typeWrite(title, 1000, titleText);
 
-for (let i = 0; i < content.length; i++) {
-    addParagraph("");
+function highlightFirstNWords(divElement, n, color) {
+    // Get the text content of the div
+    const text = divElement.textContent;
+
+    // Split the text into words
+    const words = text.split(' ');
+
+    // Check if n is within bounds
+    if (n > words.length) n = words.length;
+
+    // Wrap the first n words in a span with the specified color
+    const highlightedWords = words.slice(0, n).map(word => `<span style="color: ${color};">${word}</span>`);
+
+    // Combine the highlighted words with the rest of the words
+    const remainingWords = words.slice(n);
+    const newHTML = [...highlightedWords, ...remainingWords].join(' ');
+
+    // Set the updated HTML back to the div
+    divElement.innerHTML = newHTML;
 }
 
+function typeWriteWords(element, duration) {
 
-const paragraphs = document.querySelectorAll('p');
-let triggerHeight = 0;
-let reavealIndex = 0
-let revealTimer = 60
+    const text = element.textContent;
+    const words = text.split(' ');
+    const wordCount = words.length;
+
+    words.forEach((letter, i) => {
+        setTimeout(() => {
+            highlightFirstNWords(element, i, 'white');
+        }, i * duration / wordCount);
+    });
+}
 
 function paragraphUpdater() {
-    const screenHeight = window.innerHeight;
-    triggerHeight = paragraphs[reavealIndex].getBoundingClientRect().top;
-    if (reavealIndex < paragraphs.length && triggerHeight < screenHeight * 0.75 && revealTimer > 60) {
-        typeWrite(paragraphs[reavealIndex], 1000, content[reavealIndex]);
-        paragraphs[reavealIndex].style.color = 'white';
-        reavealIndex += 1;
-        revealTimer = 0;
+
+    const triggerHeight = window.innerHeight * 0.75;
+    const paragraphs = document.querySelectorAll('p');
+
+
+    for (let i = 0; i < paragraphs.length; i++) {
+        const top = paragraphs[i].getBoundingClientRect().top;
+        if (top < triggerHeight) {
+            // if it does not have the revealed class
+            if (!paragraphs[i].classList.contains('revealed')) {
+                typeWriteWords(paragraphs[i], 1000);
+                paragraphs[i].classList.add('revealed');
+            }
+        }
     }
-    if (reavealIndex < paragraphs.length) {
-        window.requestAnimationFrame(paragraphUpdater);
-    }
-    revealTimer += 1;
+
+    window.requestAnimationFrame(paragraphUpdater);
+
 }
 
 paragraphUpdater();
-
-addFooter();

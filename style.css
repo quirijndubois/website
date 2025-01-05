@@ -91,8 +91,8 @@ p {
     color: black;
     margin-bottom: 50px;
     font-size: 30px;
-    /* text-align: justify;
-    text-justify: inter-word; */
+    text-align: justify;
+    text-justify: inter-word;
     margin-left: auto;
     margin-right: auto;
     position: relative;
@@ -174,35 +174,36 @@ footer {
     left: 50%;
     top: calc(50% + 300px);
     transform: translate(-50%, -50%);
-    /* background-color: grey; */
     height: 100px;
     width: 800px;
 
 }
 
 .link {
-    top: 0px;
-    right: 20px;
     width: 80px;
     height: 80px;
     object-fit: cover;
-    opacity: 0.3;
     filter: saturate(0);
     animation: flyIn 1s ease-in-out;
 }
 
 #linkedin {
-    animation-delay: -0.6s;
+    animation-delay: -0.4s;
+    opacity: 0.4;
+}
+
+#youtube {
+    animation-delay: -0.3s;
     opacity: 0.4;
 }
 
 #instagram {
-    animation-delay: -0.4s;
+    animation-delay: -0.2s;
     opacity: 0.5;
 }
 
 #bsky {
-    animation-delay: -0.2s;
+    animation-delay: -0.1s;
     opacity: 0.3;
 }
 
@@ -218,6 +219,10 @@ footer {
     filter: saturate(0.4) brightness(2);
 }
 
+#youtube:hover {
+    opacity: 1;
+    filter: saturate(0.5) brightness(2);
+}
 
 #github:hover {
     opacity: 1;
@@ -235,6 +240,26 @@ footer {
     filter: saturate(0.5) brightness(2);
 }
 
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    width: min(45%, 700px);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+}
+
+.nav * {
+    color: grey;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+.nav *.active {
+    color: white;
+    text-decoration: underline;
+}
 
 
 @keyframes brighten {
