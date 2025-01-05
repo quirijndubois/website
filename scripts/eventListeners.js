@@ -34,7 +34,7 @@ for (let i = 0; i < navItems.length; i++) {
         }
         navItems[i].classList.add('active');
 
-        let paragraphs = document.querySelectorAll('p');
+        let paragraphs = document.querySelectorAll('h1, p');
         for (let j = 0; j < paragraphs.length; j++) {
             paragraphs[j].remove();
         }

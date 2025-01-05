@@ -45,18 +45,20 @@ function typeWriteWords(element, duration) {
             highlightFirstNWords(element, i, 'white');
         }, i * duration / wordCount);
     });
+    setTimeout(() => {
+        highlightFirstNWords(element, wordCount, 'white');
+    }, duration);
 }
 
 function paragraphUpdater() {
 
     const triggerHeight = window.innerHeight * 0.75;
-    const paragraphs = document.querySelectorAll('p');
 
+    const paragraphs = document.querySelectorAll('h1, p');
 
     for (let i = 0; i < paragraphs.length; i++) {
         const top = paragraphs[i].getBoundingClientRect().top;
         if (top < triggerHeight) {
-            // if it does not have the revealed class
             if (!paragraphs[i].classList.contains('revealed')) {
                 typeWriteWords(paragraphs[i], 1000);
                 paragraphs[i].classList.add('revealed');
@@ -67,5 +69,4 @@ function paragraphUpdater() {
     window.requestAnimationFrame(paragraphUpdater);
 
 }
-
 paragraphUpdater();

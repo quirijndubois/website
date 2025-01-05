@@ -100,6 +100,17 @@ p {
     opacity: 0.5;
 }
 
+h1 {
+    width: min(90%, 1400px);
+    color: black;
+    margin-bottom: 50px;
+    font-size: 50px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
 footer {
     height: 100vh;
     color: grey;
