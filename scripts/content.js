@@ -29,6 +29,11 @@ Aliquam erat volutpat. Nam viverra enim id ullamcorper porta. Maecenas sagittis,
 Donec quis mi ligula. Etiam vel libero tellus. Vestibulum semper leo vitae odio tincidunt, semper fermentum quam vulputate. Sed nec tincidunt eros. Sed ullamcorper lacinia felis, sit amet vehicula dui placerat vitae. Proin sem elit, elementum nec dapibus id, gravida quis odio. Nam et molestie purus. Integer in erat vehicula, bibendum tortor vel, tristique leo. Phasellus porttitor vulputate ex, dictum volutpat mi bibendum ut. Maecenas elementum ut massa sit amet auctor. Mauris convallis dictum mauris ac tempor. Curabitur tristique fringilla ante, in condimentum neque pulvinar quis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque varius risus scelerisque ligula vulputate, et ullamcorper enim laoreet. Proin iaculis lobortis metus, non pulvinar orci egestas nec. Proin vel massa facilisis, condimentum mi vel, commodo purus.
     `
     ],
+    [
+        `
+Shoot me an email at quirijndubois@gmail.com or find me at one of my socials above!
+    `
+    ]
 ]
 
 const footerText = 'Quirijn du Bois';
