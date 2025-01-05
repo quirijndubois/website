@@ -131,7 +131,6 @@ footer {
     animation: fadeIn 1s ease-in-out;
     animation-delay: 1s;
     opacity: 0;
-    /* glow */
 }
 
 .pf-background {
