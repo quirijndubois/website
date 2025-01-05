@@ -14,23 +14,32 @@ function typeWrite(element, duration, text) {
 }
 
 function highlightFirstNWords(divElement, n, color) {
-    // Get the text content of the div
     const text = divElement.textContent;
 
-    // Split the text into words
     const words = text.split(' ');
 
-    // Check if n is within bounds
     if (n > words.length) n = words.length;
 
-    // Wrap the first n words in a span with the specified color
     const highlightedWords = words.slice(0, n).map(word => `<span style="color: ${color};">${word}</span>`);
 
-    // Combine the highlighted words with the rest of the words
     const remainingWords = words.slice(n);
     const newHTML = [...highlightedWords, ...remainingWords].join(' ');
 
-    // Set the updated HTML back to the div
+    divElement.innerHTML = newHTML;
+}
+
+function highlightFirstNLetters(divElement, n, color) {
+    const text = divElement.textContent;
+
+    const letters = text.split('');
+
+    if (n > letters.length) n = letters.length;
+
+    const highlightedLetters = letters.slice(0, n).map(letter => `<span style="color: ${color};">${letter}</span>`);
+
+    const remainingLetters = letters.slice(n);
+    const newHTML = [...highlightedLetters, ...remainingLetters].join('');
+
     divElement.innerHTML = newHTML;
 }
 
@@ -50,18 +59,44 @@ function typeWriteWords(element, duration) {
     }, duration);
 }
 
+function typeWriteLetters(element, duration) {
+
+    const text = element.textContent;
+    const letters = text.split('');
+    const letterCount = letters.length;
+
+    letters.forEach((letter, i) => {
+        setTimeout(() => {
+            highlightFirstNLetters(element, i, 'white');
+        }, i * duration / letterCount);
+    });
+    setTimeout(() => {
+        highlightFirstNWords(element, letterCount, 'white');
+    }, duration);
+}
+
 function paragraphUpdater() {
 
     const triggerHeight = window.innerHeight * 0.75;
 
-    const paragraphs = document.querySelectorAll('h1, p');
+    const paragraphs = document.querySelectorAll('p');
+    const h1s = document.querySelectorAll('h1');
 
     for (let i = 0; i < paragraphs.length; i++) {
         const top = paragraphs[i].getBoundingClientRect().top;
         if (top < triggerHeight) {
             if (!paragraphs[i].classList.contains('revealed')) {
-                typeWriteWords(paragraphs[i], 1000);
+                typeWriteWords(paragraphs[i], 500);
                 paragraphs[i].classList.add('revealed');
+            }
+        }
+    }
+    for (let i = 0; i < h1s.length; i++) {
+        const top = h1s[i].getBoundingClientRect().top;
+        if (top < triggerHeight) {
+            if (!h1s[i].classList.contains('revealed')) {
+                typeWriteLetters(h1s[i], 1000);
+                h1s[i].classList.add('revealed');
             }
         }
     }
