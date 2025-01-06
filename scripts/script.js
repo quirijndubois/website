@@ -1,7 +1,10 @@
 updateHeader();
 UpdateHighlighting();
-startCursorUpdate();
 
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+if (!isMobile) {
+    startCursorUpdate();
+}
 
 const pf = document.querySelector('.pf');
 const pfBackground = document.querySelector('.pf-background');

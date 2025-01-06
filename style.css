@@ -1,3 +1,19 @@
+:root {
+    --left-gradient-color: #00d2ff;
+    --right-gradient-color: #a148ff;
+    --header-font-size: min(60px, 8vw);
+    --subheader-font-size: 30px;
+    --paragraph-font-size: 20px;
+    --vertical-main-page-spacing: 25%;
+    --nav-item-font-size: 30px;
+    --paragraph-width: min(90%, 1000px);
+    --cursor-size: 20px;
+    --link-icon-size: 50px;
+    --pf-size: 120px;
+    --pf-background-multiplier: 1.25;
+    --nav-width: min(90vw, 700px);
+}
+
 html * {
     cursor: none
 }
@@ -6,17 +22,19 @@ body {
     color: rgb(255, 255, 255);
     background-color: rgb(0, 0, 0);
     font-family: "Roboto Mono", serif;
+    font-size: var(--font-size);
 }
 
 .cursor {
-    width: 30px;
-    height: 30px;
+    width: var(--cursor-size);
+    height: var(--cursor-size);
     border-radius: 50%;
     position: absolute;
     transform: translate(-10px, -10px);
     pointer-events: none;
     z-index: 1000;
     backdrop-filter: invert();
+    left: -100px;
 }
 
 .front {
@@ -25,7 +43,7 @@ body {
 }
 
 .header {
-    font-size: 80px;
+    font-size: var(--header-font-size);
     position: absolute;
     left: 50%;
     top: 50%;
@@ -33,27 +51,24 @@ body {
 
     display: inline-block;
     color: rgb(255, 255, 255);
-    background-image: linear-gradient(to right, rgb(255, 0, 0), rgb(0, 30, 255));
-    background-image: linear-gradient(90deg, #00d2ff 0%, #a148ff 100%);
+    background-image: linear-gradient(to right, var(--left-gradient-color) 0%, var(--right-gradient-color) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    /* stays visible if too large */
     white-space: nowrap;
+    /* dont change size if the surrounding div gets too small */
 }
 
 .header::after {
-    /* thin white line to the right of header */
     content: '';
     position: absolute;
     top: 0;
     right: -10px;
-    width: 5px;
-    height: 80px;
-    transform: translate(0, 20px);
+    width: 3px;
+    height: var(--header-font-size);
+    transform: translate(0, calc(var(--header-font-size) / 5));
     background-color: rgb(255, 255, 255);
-    /* make it blink */
     animation: blink 0.5s infinite;
 }
 
@@ -87,10 +102,10 @@ body {
 }
 
 p {
-    width: min(90%, 1400px);
+    width: var(--paragraph-width);
     color: black;
     margin-bottom: 50px;
-    font-size: 30px;
+    font-size: var(--paragraph-font-size);
     text-align: justify;
     text-justify: inter-word;
     margin-left: auto;
@@ -101,10 +116,10 @@ p {
 }
 
 h1 {
-    width: min(90%, 1400px);
+    width: var(--paragraph-width);
     color: black;
     margin-bottom: 50px;
-    font-size: 50px;
+    font-size: var(--subheader-font-size);
     text-align: left;
     margin-left: auto;
     margin-right: auto;
@@ -120,23 +135,13 @@ footer {
     z-index: -1;
 }
 
-.hline {
-    width: 500px;
-    height: 2px;
-    background-color: grey;
-    position: absolute;
-    left: 50%;
-    top: calc(50% - 120px);
-    transform: translate(-50%, -50%);
-}
-
 .pf {
     position: absolute;
     left: 50%;
-    top: calc(50% - 300px);
+    top: calc(50% - var(--vertical-main-page-spacing));
     transform: translate(-50%, -50%);
-    width: 200px;
-    height: 200px;
+    width: var(--pf-size);
+    height: var(--pf-size);
     object-fit: cover;
     border-radius: 50%;
     animation: fadeIn 1s ease-in-out;
@@ -147,10 +152,10 @@ footer {
 .pf-background {
     position: absolute;
     left: 50%;
-    top: calc(50% - 300px);
+    top: calc(50% - var(--vertical-main-page-spacing));
     transform: translate(-50%, -50%);
-    width: 250px;
-    height: 250px;
+    width: calc(var(--pf-size) * var(--pf-background-multiplier));
+    height: calc(var(--pf-size) * var(--pf-background-multiplier));
     object-fit: cover;
     border-radius: 50%;
     animation: fadeIn 1s ease-in-out;
@@ -169,7 +174,6 @@ footer {
     opacity: 0.3;
     padding: 30px;
     filter: saturate(0);
-
 }
 
 
@@ -179,19 +183,18 @@ footer {
 
 .links {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     position: absolute;
     left: 50%;
-    top: calc(50% + 300px);
+    top: calc(50% + var(--vertical-main-page-spacing));
     transform: translate(-50%, -50%);
     height: 100px;
-    width: 800px;
-
+    width: var(--paragraph-width);
 }
 
 .link {
-    width: 80px;
-    height: 80px;
+    width: var(--link-icon-size);
+    height: var(--link-icon-size);
     object-fit: cover;
     filter: saturate(0);
     animation: flyIn 1s ease-in-out;
@@ -254,16 +257,19 @@ footer {
 .nav {
     display: flex;
     justify-content: space-between;
-    width: min(45%, 700px);
+    width: var(--nav-width);
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 100px;
+    text-align: center;
+
 }
 
 .nav * {
     color: grey;
     text-decoration: none;
-    font-size: 40px;
+    font-size: var(--nav-item-font-size);
+    text-align: center;
 }
 
 .nav *.active {
