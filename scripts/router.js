@@ -15,6 +15,11 @@ function handleNavClick(i) {
     }
 }
 
+function removeHash() {
+    history.pushState("", document.title, window.location.pathname
+        + window.location.search);
+}
+
 function hashToPath(hash) {
     return hash.split("#").pop().toLowerCase();
 }
@@ -80,12 +85,12 @@ window.addEventListener('scroll', (e) => {
     e.preventDefault();
     const height = window.innerHeight / 2;
     if (window.scrollY < height) {
-        if (window.location.hash != '#q') {
-            window.location.hash = 'q';
+        if (window.location.hash != '') {
+            removeHash();
         }
     }
     if (window.scrollY > height) {
-        if (window.location.hash == '#q') {
+        if (window.location.hash == '') {
             window.location.hash = navContents[pageIndex];
         }
     }
