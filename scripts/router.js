@@ -52,7 +52,7 @@ else {
     setScrollNav();
 }
 
-if (path == 'q') {
+if (path == '') {
     setScrollHome();
 }
 
