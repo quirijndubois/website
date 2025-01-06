@@ -15,6 +15,10 @@ function handleNavClick(i) {
     }
 }
 
+function hashToPath(hash) {
+    return hash.split("#").pop().toLowerCase();
+}
+
 function setScrollNav() {
     const height = window.innerHeight - 100;
     window.scroll({ top: height, left: 0, behavior: 'smooth' });
@@ -28,8 +32,7 @@ function setScrollHome() {
 const navItems = document.querySelectorAll('.nav-item');
 
 
-const hash = window.location.hash;
-const path = hash.split("#").pop();
+const path = hashToPath(window.location.hash);
 
 const navContents = [];
 for (let i = 0; i < navItems.length; i++) {
@@ -66,11 +69,10 @@ for (let i = 0; i < navItems.length; i++) {
 
 window.addEventListener('hashchange', (e) => {
     e.preventDefault();
-    const newUrl = window.location.href;
-    const newPath = newUrl.split('/').pop().split("#").pop();
-    index = navContents.indexOf(newPath);
+    const path = hashToPath(window.location.hash);
+    index = navContents.indexOf(path);
     if (index != -1) {
-        handleNavClick(pageIndex);
+        handleNavClick(index);
     }
 });
 
