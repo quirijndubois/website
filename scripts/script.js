@@ -19,7 +19,7 @@ typeWrite(title, 1000, titleText);
 fetchTxtFiles(['content/about.md', 'content/blog.md', 'content/contact.md'])
     .then(texts => {
         content = texts;
-        for (let i = 0; i < content[0].length; i++) {
-            addParagraph(content[0][i]);
+        for (let i = 0; i < content[pageIndex].length; i++) {
+            addParagraph(content[pageIndex][i]);
         }
     })
