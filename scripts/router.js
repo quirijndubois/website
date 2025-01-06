@@ -60,7 +60,6 @@ for (let i = 0; i < navItems.length; i++) {
 for (let i = 0; i < navItems.length; i++) {
     navItems[i].addEventListener('click', (e) => {
         handleNavClick(i);
-        // change url
         window.location.hash = navContents[i];
     });
 }
@@ -75,7 +74,6 @@ window.addEventListener('hashchange', (e) => {
     }
 });
 
-// add scroll event listener
 window.addEventListener('scroll', (e) => {
     e.preventDefault();
     const height = window.innerHeight / 2;
