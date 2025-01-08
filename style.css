@@ -7,11 +7,13 @@
     --vertical-main-page-spacing: 25%;
     --nav-item-font-size: 30px;
     --paragraph-width: min(90%, 1000px);
+    --subheader-width: min(90%, 1000px);
     --cursor-size: 20px;
     --link-icon-size: 50px;
     --pf-size: 120px;
     --pf-background-multiplier: 1.25;
     --nav-width: min(90vw, 700px);
+    --date-font-size: 15px;
 }
 
 html * {
@@ -115,8 +117,23 @@ p {
     opacity: 0.5;
 }
 
+.date {
+    font-size: var(--date-font-size);
+    margin-top: 0;
+    margin-bottom: 0;
+    transform: translate(0, -40px);
+}
+
+@media only screen and (min-width: 600px) {
+    .date {
+        text-align: right;
+        margin-bottom: -40px;
+        transform: translate(0, -80px);
+    }
+}
+
 h1 {
-    width: var(--paragraph-width);
+    width: var(--subheader-width);
     color: black;
     margin-bottom: 50px;
     font-size: var(--subheader-font-size);

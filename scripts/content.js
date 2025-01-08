@@ -4,14 +4,22 @@ const footerText = 'Quirijn du Bois';
 content = [];
 
 function pageToTypes(text) {
-    textArray = text.split('\n\n');
+    textArray = text.split('\n');
+    textArray = textArray.filter(line => line != '');
+
     let textToReturn = []
     textArray.forEach(paragraph => {
         if (paragraph[0] == '#') {
-            textToReturn.push(["h1", paragraph.slice(1)]);
+            textToReturn.push(["h1", paragraph.slice(1), "h1"]);
+        }
+        else if (paragraph[0] == '$') {
+            textToReturn.push(["p", paragraph.slice(1), "math"]);
+        }
+        else if (paragraph[0] == ':') {
+            textToReturn.push(["p", paragraph.slice(1), "date"]);
         }
         else {
-            textToReturn.push(["p", paragraph]);
+            textToReturn.push(["p", paragraph, "p"]);
         }
     });
 
@@ -31,8 +39,10 @@ function addParagraph(content) {
 
     let text = content[1];
     let type = content[0];
+    let className = content[2];
 
     const paragraph = document.createElement(type);
+    paragraph.classList.add(className);
     paragraph.innerHTML = text;
     document.querySelector('.content').appendChild(paragraph);
 }

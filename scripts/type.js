@@ -13,6 +13,11 @@ function typeWrite(element, duration, text) {
     });
 }
 
+function reveal(element, duration) {
+    element.style.color = "white";
+    MathJax.typeset()
+}
+
 function highlightFirstNWords(divElement, n, color) {
     const text = divElement.textContent;
 
@@ -79,8 +84,10 @@ function paragraphUpdater() {
 
     const triggerHeight = window.innerHeight * 0.75;
 
-    const paragraphs = document.querySelectorAll('p');
+    const paragraphs = document.querySelectorAll('.p');
     const h1s = document.querySelectorAll('h1');
+    const maths = document.querySelectorAll('.math');
+    const dates = document.querySelectorAll('.date');
 
     for (let i = 0; i < paragraphs.length; i++) {
         const top = paragraphs[i].getBoundingClientRect().top;
@@ -97,6 +104,24 @@ function paragraphUpdater() {
             if (!h1s[i].classList.contains('revealed')) {
                 typeWriteLetters(h1s[i], 1000);
                 h1s[i].classList.add('revealed');
+            }
+        }
+    }
+    for (let i = 0; i < maths.length; i++) {
+        const top = maths[i].getBoundingClientRect().top;
+        if (top < triggerHeight) {
+            if (!maths[i].classList.contains('revealed')) {
+                reveal(maths[i], 0);
+                maths[i].classList.add('revealed');
+            }
+        }
+    }
+    for (let i = 0; i < dates.length; i++) {
+        const top = dates[i].getBoundingClientRect().top;
+        if (top < triggerHeight) {
+            if (!dates[i].classList.contains('revealed')) {
+                typeWriteLetters(dates[i], 2500);
+                dates[i].classList.add('revealed');
             }
         }
     }

@@ -5,7 +5,7 @@ function handleNavClick(i) {
     }
     navItems[i].classList.add('active');
 
-    let paragraphs = document.querySelectorAll('h1, p');
+    let paragraphs = document.querySelectorAll('h1, .p, .math, .date');
     for (let j = 0; j < paragraphs.length; j++) {
         paragraphs[j].remove();
     }
