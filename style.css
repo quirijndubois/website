@@ -183,7 +183,9 @@ p {
 
 footer {
     font-size: var(--paragraph-font-size);
-    height: 100vh;
+    background-color: ;
+    min-height: 50vh;
+    width: 100%;
     color: grey;
     position: absolute;
     left: 50%;
