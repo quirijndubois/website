@@ -196,6 +196,7 @@ footer {
 
 .top-right:hover {
     opacity: 1;
+
 }
 
 .links {
@@ -213,63 +214,48 @@ footer {
     width: var(--link-icon-size);
     height: var(--link-icon-size);
     object-fit: cover;
-    filter: saturate(0);
+    filter: saturate(0) brightness(0.6);
     animation: flyIn 1s ease-in-out;
 }
 
 #linkedin {
     animation-delay: -0.4s;
-    opacity: 0.4;
+    opacity: 0.8;
 }
 
 #youtube {
     animation-delay: -0.3s;
-    opacity: 0.4;
+    opacity: 0.8;
 }
 
 #instagram {
     animation-delay: -0.2s;
-    opacity: 0.5;
+    opacity: 1;
 }
 
 #bsky {
     animation-delay: -0.1s;
-    opacity: 0.3;
+    opacity: 0.6;
 }
 
 #github {
     animation-delay: -0.0s;
-    opacity: 0.3;
+    opacity: 0.6;
 }
 
-
-
-#instagram:hover {
-    opacity: 1;
-    filter: saturate(0.4) brightness(2);
+.link:hover {
+    animation: highlightLink 0.2s ease-in-out forwards;
 }
 
-#youtube:hover {
-    opacity: 1;
-    filter: saturate(0.5) brightness(2);
+@keyframes highlightLink {
+    from {
+        filter: saturate(0) brightness(0.6);
+    }
+
+    to {
+        filter: saturate(0.5) brightness(2);
+    }
 }
-
-#github:hover {
-    opacity: 1;
-    filter: saturate(0.5) brightness(2);
-}
-
-
-#linkedin:hover {
-    opacity: 1;
-    filter: saturate(0.5) brightness(2);
-}
-
-#bsky:hover {
-    opacity: 1;
-    filter: saturate(0.5) brightness(2);
-}
-
 
 .nav {
     display: flex;
@@ -287,11 +273,45 @@ footer {
     text-decoration: none;
     font-size: var(--nav-item-font-size);
     text-align: center;
+    position: relative;
 }
+
+.nav *:hover:not(.active) {
+    animation: highlightNav 0.2s ease-in-out forwards;
+}
+
+.nav *:not(:hover):not(.active) {
+    animation: unhighlightNav 0.2s ease-in-out forwards;
+}
+
 
 .nav *.active {
     color: white;
-    text-decoration: underline;
+    /* text-decoration: underline; */
+}
+
+.nav *.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    animation: underliningAppear 0.3s ease-in-out forwards;
+}
+
+.nav *:not(.active)::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    animation: underliningDisappear 0.3s ease-in-out forwards;
 }
 
 
@@ -373,5 +393,47 @@ footer {
 
     to {
         transform: scale(1) translate(-10px, -10px);
+    }
+}
+
+@keyframes highlightNav {
+    from {
+        color: grey;
+    }
+
+    to {
+        color: white;
+    }
+}
+
+@keyframes unhighlightNav {
+    from {
+        color: white;
+    }
+
+    to {
+        color: grey;
+    }
+}
+
+@keyframes underliningAppear {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes underliningDisappear {
+    from {
+        width: 100%;
+        background-color: white;
+    }
+
+    to {
+        width: 0;
+        background-color: grey;
     }
 }
