@@ -6,12 +6,12 @@
     --subsubheader-font-size: 20px;
     --paragraph-font-size: 16px;
     --vertical-main-page-spacing: 25%;
-    --nav-item-font-size: 24px;
+    --nav-item-font-size: min(24px, 4vw);
     --paragraph-width: min(90%, 1000px);
     --subheader-width: min(90%, 1000px);
     --cursor-size: 20px;
-    --link-icon-size: 50px;
-    --pf-size: 120px;
+    --link-icon-size: min(50px, 10vw);
+    --pf-size: 100px;
     --pf-background-multiplier: 1.25;
     --nav-width: min(90vw, 700px);
     --date-font-size: 15px;
@@ -127,7 +127,7 @@ body {
     font-size: var(--date-font-size);
     margin-top: 0;
     margin-bottom: 0;
-    transform: translate(0, -40px);
+    transform: translate(0, -20px);
 }
 
 @media only screen and (min-width: 600px) {
