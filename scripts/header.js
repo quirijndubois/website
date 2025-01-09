@@ -18,6 +18,6 @@ function updateHeader() {
     let scale = mapRangeClamp(window.scrollY, window.innerHeight - headerOffset * 2, window.innerHeight / 2 - headerOffset * 2, 0.5, 1);
     header.style.transform = 'translate(-50%, -50%) scale(' + scale + ')';
 
-    let opacity = mapRangeClamp(window.scrollY, window.innerHeight - headerOffset * 2, window.innerHeight / 2 - headerOffset * 2, 0, 1);
+    let opacity = mapRangeClamp(window.scrollY, window.innerHeight * 0.5, window.innerHeight * 0.3, 0, 1);
     links.style.opacity = opacity;
 }

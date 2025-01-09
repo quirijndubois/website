@@ -182,6 +182,7 @@ p {
 }
 
 footer {
+    font-size: var(--paragraph-font-size);
     height: 100vh;
     color: grey;
     position: absolute;
