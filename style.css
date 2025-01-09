@@ -2,7 +2,8 @@
     --left-gradient-color: #00d2ff;
     --right-gradient-color: #a148ff;
     --header-font-size: min(60px, 8vw);
-    --subheader-font-size: 24px;
+    --subheader-font-size: 28px;
+    --subsubheader-font-size: 20px;
     --paragraph-font-size: 16px;
     --vertical-main-page-spacing: 25%;
     --nav-item-font-size: 24px;
@@ -103,20 +104,6 @@ body {
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 60%);
 }
 
-p {
-    width: var(--paragraph-width);
-    color: black;
-    margin-bottom: 50px;
-    font-size: var(--paragraph-font-size);
-    text-align: justify;
-    text-justify: inter-word;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    z-index: -1;
-    opacity: 0.5;
-    position: relative;
-}
 
 .last::after {
     font-size: var(--paragraph-font-size);
@@ -154,14 +141,44 @@ p {
 h1 {
     width: var(--subheader-width);
     color: black;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+    margin-top: 60px;
     font-size: var(--subheader-font-size);
     text-align: left;
     margin-left: auto;
     margin-right: auto;
     position: relative;
     z-index: -1;
+}
 
+h2 {
+    width: var(--subheader-width);
+    color: black;
+    margin-bottom: 30px;
+    margin-top: 60px;
+    font-size: var(--subsubheader-font-size);
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    font-weight: normal;
+    z-index: -1;
+}
+
+
+p {
+    width: var(--paragraph-width);
+    color: black;
+    margin-bottom: 25px;
+    font-size: var(--paragraph-font-size);
+    text-align: justify;
+    text-justify: inter-word;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: -1;
+    opacity: 0.5;
+    position: relative;
 }
 
 footer {

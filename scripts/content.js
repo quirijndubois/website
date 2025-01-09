@@ -10,7 +10,12 @@ function pageToTypes(text) {
     let textToReturn = []
     textArray.forEach(paragraph => {
         if (paragraph[0] == '#') {
-            textToReturn.push(["h1", paragraph.slice(1), "h1"]);
+            if (paragraph[1] == '#') {
+                textToReturn.push(["h2", paragraph.slice(2), "h2"]);
+            }
+            else {
+                textToReturn.push(["h1", paragraph.slice(1), "h1"]);
+            }
         }
         else if (paragraph[0] == '$') {
             textToReturn.push(["p", paragraph.slice(1), "math"]);

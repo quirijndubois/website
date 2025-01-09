@@ -85,7 +85,7 @@ function paragraphUpdater() {
     const triggerHeight = window.innerHeight * 0.75;
 
     const paragraphs = document.querySelectorAll('.p');
-    const h1s = document.querySelectorAll('h1');
+    const h1s = document.querySelectorAll('h1, h2');
     const maths = document.querySelectorAll('.math');
     const dates = document.querySelectorAll('.date');
     let lastDrawnElement = null;

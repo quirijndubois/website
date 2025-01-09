@@ -9,7 +9,7 @@ if (!isMobile) {
 const title = document.querySelector('.header');
 typeWrite(title, 1000, titleText);
 
-fetchTxtFiles(['content/about.md', 'content/blog.md', 'content/contact.md'])
+fetchTxtFiles(['content/about.md', 'content/projects.md', 'content/blog.md', 'content/contact.md'])
     .then(texts => {
         content = texts;
         for (let i = 0; i < content[pageIndex].length; i++) {
