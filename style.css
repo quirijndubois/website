@@ -264,6 +264,7 @@ footer {
     object-fit: cover;
     filter: saturate(0) brightness(0.6);
     animation: flyIn 1s ease-in-out;
+    z-index: -1;
 }
 
 #linkedin {
@@ -313,6 +314,7 @@ footer {
     margin-right: auto;
     margin-bottom: 100px;
     text-align: center;
+    z-index: -100;
 
 }
 
