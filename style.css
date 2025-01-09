@@ -2,10 +2,10 @@
     --left-gradient-color: #00d2ff;
     --right-gradient-color: #a148ff;
     --header-font-size: min(60px, 8vw);
-    --subheader-font-size: 30px;
-    --paragraph-font-size: 20px;
+    --subheader-font-size: 24px;
+    --paragraph-font-size: 16px;
     --vertical-main-page-spacing: 25%;
-    --nav-item-font-size: 30px;
+    --nav-item-font-size: 24px;
     --paragraph-width: min(90%, 1000px);
     --subheader-width: min(90%, 1000px);
     --cursor-size: 20px;
@@ -115,7 +115,26 @@ p {
     position: relative;
     z-index: -1;
     opacity: 0.5;
+    position: relative;
 }
+
+.last::after {
+    font-size: var(--paragraph-font-size);
+    text-align: center;
+    text-justify: center;
+    font-weight: normal;
+    opacity: 1;
+    position: absolute;
+    content: 'Scroll down to continue';
+    color: grey;
+    left: 50%;
+    top: calc(100% + 40px);
+    transform: translate(-50%, 0);
+    z-index: 1000;
+    animation: breathing 1s ease-in-out infinite;
+}
+
+/* fade out .last::after when it is not .last class anymore */
 
 .date {
     font-size: var(--date-font-size);
@@ -141,6 +160,8 @@ h1 {
     margin-left: auto;
     margin-right: auto;
     position: relative;
+    z-index: -1;
+
 }
 
 footer {
@@ -152,6 +173,11 @@ footer {
     z-index: -1;
 }
 
+
+.pf-container {
+    animation: fadeIn 1s ease-in-out;
+}
+
 .pf {
     position: absolute;
     left: 50%;
@@ -161,9 +187,15 @@ footer {
     height: var(--pf-size);
     object-fit: cover;
     border-radius: 50%;
-    animation: fadeIn 1s ease-in-out;
-    animation-delay: 1s;
-    opacity: 0;
+}
+
+.pf:hover {
+    animation: enlargePF 0.3s ease-in-out forwards;
+
+}
+
+.pf:not(:hover) {
+    animation: shrinkPF 0.2s ease-in-out forwards;
 }
 
 .pf-background {
@@ -175,9 +207,7 @@ footer {
     height: calc(var(--pf-size) * var(--pf-background-multiplier));
     object-fit: cover;
     border-radius: 50%;
-    animation: fadeIn 1s ease-in-out;
-    animation-delay: 1s;
-    opacity: 0;
+    animation: fadeIn 2s ease-in-out;
     filter: blur(50px) brightness(2);
 }
 
@@ -435,5 +465,43 @@ footer {
     to {
         width: 0;
         background-color: grey;
+    }
+}
+
+@keyframes breathing {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes enlargePF {
+    from {
+        width: var(--pf-size);
+        height: var(--pf-size);
+    }
+
+    to {
+        width: calc(var(--pf-size) * 1.2);
+        height: calc(var(--pf-size) * 1.2);
+    }
+}
+
+@keyframes shrinkPF {
+    from {
+        width: calc(var(--pf-size) * 1.2);
+        height: calc(var(--pf-size) * 1.2);
+    }
+
+    to {
+        width: var(--pf-size);
+        height: var(--pf-size);
     }
 }

@@ -6,13 +6,6 @@ if (!isMobile) {
     startCursorUpdate();
 }
 
-const pf = document.querySelector('.pf');
-const pfBackground = document.querySelector('.pf-background');
-setTimeout(() => {
-    pfBackground.style.opacity = '1';
-    pf.style.opacity = '1';
-}, 1500);
-
 const title = document.querySelector('.header');
 typeWrite(title, 1000, titleText);
 
