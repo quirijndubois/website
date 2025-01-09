@@ -2,9 +2,9 @@
     --left-gradient-color: #00d2ff;
     --right-gradient-color: #a148ff;
     --header-font-size: min(60px, 8vw);
-    --subheader-font-size: 28px;
-    --subsubheader-font-size: 20px;
-    --paragraph-font-size: 16px;
+    --subheader-font-size: min(30px, 6vw);
+    --subsubheader-font-size: min(24px, 4vw);
+    --paragraph-font-size: min(16px, 3vw);
     --vertical-main-page-spacing: 25%;
     --nav-item-font-size: min(24px, 4vw);
     --paragraph-width: min(90%, 1000px);
@@ -14,7 +14,7 @@
     --pf-size: 100px;
     --pf-background-multiplier: 1.25;
     --nav-width: min(90vw, 700px);
-    --date-font-size: 15px;
+    --date-font-size: min(16px, 3vw);
 }
 
 html * {
