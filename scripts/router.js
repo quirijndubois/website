@@ -72,14 +72,14 @@ for (let i = 0; i < navItems.length; i++) {
     });
 }
 
-// window.addEventListener('hashchange', (e) => {
-//     e.preventDefault();
-//     const path = hashToPath(window.location.hash);
-//     index = navContents.indexOf(path);
-//     if (index != -1) {
-//         handleNavClick(index);
-//     }
-// });
+window.addEventListener('hashchange', (e) => {
+    e.preventDefault();
+    const path = hashToPath(window.location.hash);
+    index = navContents.indexOf(path);
+    if (index != -1) {
+        handleNavClick(index);
+    }
+});
 
 window.addEventListener('scroll', (e) => {
     e.preventDefault();
