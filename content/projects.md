@@ -1,6 +1,6 @@
 # Projects
 
-On this page you can find some of the programming projects I have been working on. I try to open source anything I work as much as I can!
+On this page you can find some of the programming projects I have been working on. I try to open source as much as I can!
 
 ## Phanim
 :Coming soon

@@ -135,8 +135,9 @@ function paragraphUpdater() {
         const top = links[i].getBoundingClientRect().top;
         if (top < triggerHeight) {
             if (!links[i].classList.contains('revealed')) {
-                typeWriteLetters(links[i], 1000);
+                // typeWriteLetters(links[i], 1000);
                 links[i].classList.add('revealed');
+                links[i].style.animation = 'fadeIn 0.5s ease-in-out forwards';
             }
         }
     }
