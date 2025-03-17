@@ -157,7 +157,7 @@ h2 {
     width: var(--subheader-width);
     color: black;
     margin-bottom: 30px;
-    margin-top: 60px;
+    margin-top: 100px;
     font-size: var(--subsubheader-font-size);
     text-align: left;
     margin-left: auto;
@@ -171,21 +171,36 @@ h2 {
 p {
     width: var(--paragraph-width);
     color: black;
-    margin-bottom: 25px;
+    margin-left: calc((100% - var(--paragraph-width))/2);
+    margin-bottom: 20px;
     font-size: var(--paragraph-font-size);
     text-align: justify;
     text-justify: inter-word;
-    margin-left: auto;
-    margin-right: auto;
     position: relative;
     z-index: -1;
     opacity: 0.5;
+}
+
+a {
+    width: var(--paragraph-width);
+    color: rgb(0, 0, 0);
+    margin-left: calc((100% - var(--paragraph-width))/2);
+    margin-bottom: 0px;
+    font-size: var(--paragraph-font-size);
+    text-align: justify;
+    text-justify: inter-word;
     position: relative;
+    opacity: 0.5;
+    display: block;
+}
+
+a:hover {
+    opacity: 1;
+    color : rgb(255, 255, 255);                                  
 }
 
 footer {
     font-size: var(--paragraph-font-size);
-    background-color: ;
     min-height: 50vh;
     width: 100%;
     color: grey;
