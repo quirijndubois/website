@@ -23,6 +23,10 @@ function pageToTypes(text) {
         else if (paragraph[0] == ':') {
             textToReturn.push(["p", paragraph.slice(1), "date"]);
         }
+        else if (paragraph[0] == '@') {
+            textToReturn.push(["a", paragraph.slice(1), "a"]);
+        }
+
         else {
             textToReturn.push(["p", paragraph, "p"]);
         }
@@ -50,4 +54,9 @@ function addParagraph(content) {
     paragraph.classList.add(className);
     paragraph.innerHTML = text;
     document.querySelector('.content').appendChild(paragraph);
+
+    if (className == "a") {
+        paragraph.href = text;
+        paragraph.target = "_blank";
+    }
 }

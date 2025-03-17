@@ -88,6 +88,7 @@ function paragraphUpdater() {
     const h1s = document.querySelectorAll('h1, h2');
     const maths = document.querySelectorAll('.math');
     const dates = document.querySelectorAll('.date');
+    const links = document.querySelectorAll('.a');
     let lastDrawnElement = null;
 
     for (let i = 0; i < paragraphs.length; i++) {
@@ -130,13 +131,23 @@ function paragraphUpdater() {
         }
     }
 
+    for (let i = 0; i < links.length; i++) {
+        const top = links[i].getBoundingClientRect().top;
+        if (top < triggerHeight) {
+            if (!links[i].classList.contains('revealed')) {
+                typeWriteLetters(links[i], 1000);
+                links[i].classList.add('revealed');
+            }
+        }
+    }
+
     revealedElements = document.querySelectorAll('.revealed');
     lastElements = document.querySelectorAll('.last');
     for (let i = 0; i < lastElements.length; i++) {
         lastElements[i].classList.remove('last');
     }
     // make sure revealed element is not the very last element
-    const allElements = document.querySelectorAll('.p, h1, .math, .date');
+    const allElements = document.querySelectorAll('.p, h1, .math, .date, .a');
     const lastElement = allElements[allElements.length - 1];
 
     if (revealedElements.length > 0 && revealedElements[revealedElements.length - 1] != lastElement) {
