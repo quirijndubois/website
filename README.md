@@ -1,2 +1,2 @@
-# https://quirijndubois.nl
+# https://quirijn.org
 Personal digital resume
