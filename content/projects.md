@@ -4,7 +4,7 @@ On this page you can find some of the programming projects I have been working o
 
 ## Phanim
 :Coming soon
-Phanim is an open source python library designed to render, simuilate and animate simplified physical processes. 
+Phanim is an open source python library designed to render, simulate and animate simplified physical processes. 
 
 @https://github.com/quirijndubois/phanim
 
@@ -16,7 +16,7 @@ PhanimJS is a more streamlined version of Phanim written in Javascript for the w
 
 ## This website
 :Coming soon
-This websites is my first web project that was created for actual use. 
+This website is my first web project that was created for actual use. 
 
 @https://github.com/quirijndubois/website
 
@@ -33,6 +33,6 @@ I have written a peak detection library that uses machine learning to detect pea
 @https://github.com/quirijndubois/PeakPyAI
 
 ## Other stuff
-For some of my smaller projects take a look at my github page!
+For some of my smaller projects take a look at my GitHub page!
 
 @https://github.com/quirijndubois
