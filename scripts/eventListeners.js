@@ -17,9 +17,15 @@ document.addEventListener('scroll', () => {
 document.addEventListener('mousedown', () => {
     cursor.style.animation = 'highLight 0.2s ease-in-out';
     cursor.style.transform = 'scale(3) translate(-3.3px, -3.3px)';
+    AFKtime = 0;
 });
 
 document.addEventListener('mouseup', () => {
+    cursor.style.animation = 'unhighLight 0.2s ease-in-out';
+    cursor.style.transform = 'scale(1) translate(-10px, -10px)';
+});
+
+document.addEventListener('dragend', () => {
     cursor.style.animation = 'unhighLight 0.2s ease-in-out';
     cursor.style.transform = 'scale(1) translate(-10px, -10px)';
 });
